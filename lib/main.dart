@@ -8,23 +8,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TP Stateless Widgets',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: MyStatelessWidget(title: 'Mon Premier Stateless Widget 🥳'),
+      home: MyStatelessWidget(username: 'Alice'),
     );
   }
 }
 
 class MyStatelessWidget extends StatelessWidget {
-  final String title;
+  final String username;
 
-  MyStatelessWidget({required this.title});
+  MyStatelessWidget({required this.username});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(title: Text('Mon Premier Stateless Widget 🥳')),
       body: Center(
         child: Text(
-          'Bienvenue dans le monde des Stateless Widgets! 🌍',
+          'Salut $username, bienvenue dans le monde des Stateless Widgets! 🌍',
           style: TextStyle(fontSize: 20),
         ),
       ),
