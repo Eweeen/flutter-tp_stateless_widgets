@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+final List<String> messages = [
+  'Bonjour Zoé 🌞',
+  'Bien joué pour la partie précédent 🎉',
+  'Les Stateless Widgets sont incroyables, n\'est-ce pas? 🚀',
+  'Continuez à coder ! 💻'
+];
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,9 +30,29 @@ class MyStatelessWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Mon Premier Stateless Widget 🥳')),
       body: Center(
+          child: ListView.builder(
+        itemCount: messages.length,
+        itemBuilder: (context, index) {
+          return MessageCard(message: messages[index]);
+        },
+      )),
+    );
+  }
+}
+
+class MessageCard extends StatelessWidget {
+  final String message;
+
+  MessageCard({required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Text(
-          'Salut $username, bienvenue dans le monde des Stateless Widgets! 🌍',
-          style: TextStyle(fontSize: 20),
+          message,
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );
