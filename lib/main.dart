@@ -48,13 +48,17 @@ class MessageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 5.0,
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
       child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Text(
-          message,
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
+          padding: EdgeInsets.all(16.0),
+          child: ListTile(
+            leading: Icon(Icons.message),
+            title: Text(
+              message,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          )),
     );
   }
 }
